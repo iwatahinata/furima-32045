@@ -10,7 +10,6 @@
 | last_name_kana     | string  | null: false |
 | nickname           | string  | null: false |
 | email              | string  | null: false |
-| password           | string  | null: false |
 | encrypted_password | string  | null: false |
 | birthday           | date    | null: false |
 
@@ -22,17 +21,17 @@
 
 ## items テーブル
 
-| Column        | Type       | Options           |
-| ------------- | ---------- | ----------------- |
-| title         | string     | null: false       |
-| explain       | text       | null: false       |
-| item_category | string     | null: false       |
-| item_status   | string     | null: false       |
-| derivery_fee  | string     | null: false       |
-| derivery_area | string     | null: false       |
-| derivery_days | string     | null: false       |
-| price         | integer    | null: false       |
-| user          | references | foreign_key: true |
+| Column           | Type        | Options           |
+| ---------------- | ----------- | ----------------- |
+| title            | string      | null: false       |
+| explain          | text        | null: false       |
+| category_id      | integer     | null: false       |
+| status_id        | integer     | null: false       |
+| derivery_fee_id  | integer     | null: false       |
+| derivery_area_id | integer     | null: false       |
+| derivery_days_id | integer     | null: false       |
+| price            | integer     | null: false       |
+| user             | references  | foreign_key: true |
 
 
 ### Association
@@ -58,15 +57,15 @@
 
 # houses テーブル
 
-| Column       | Type       | Options           |
-| ------------ | ---------- | ----------------- |
-| postal_code  | integer    | null: false       |
-| prefectures  | string     | null: false       |
-| cities       | string     | null: false       |
-| address      | integer    | null: false       |
-| house_name   | string     |                   |
-| phone_number | integer    | null: false       |
-| buy          | references | foreign_key: true |
+| Column         | Type       | Options           |
+| ---------------| ---------- | ----------------- |
+| postal_code    | string     | null: false       |
+| prefectures_id | integer    | null: false       |
+| city           | string     | null: false       |
+| address        | string     | null: false       |
+| house_name     | string     |                   |
+| phone_number   | integer    | null: false       |
+| buy            | references | foreign_key: true |
 
 ### Association
 
