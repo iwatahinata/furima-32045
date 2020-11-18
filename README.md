@@ -58,14 +58,15 @@
 
 # houses テーブル
 
-| Column       | Type    | Options     |
-| ------------ | ------- | ----------- |
-| postal_code  | integer | null: false |
-| prefectures  | string  | null: false |
-| cities       | string  | null: false |
-| address      | integer | null: false |
-| house_name   | string  |             |
-| phone_number | integer | null: false |
+| Column       | Type       | Options           |
+| ------------ | ---------- | ----------------- |
+| postal_code  | integer    | null: false       |
+| prefectures  | string     | null: false       |
+| cities       | string     | null: false       |
+| address      | integer    | null: false       |
+| house_name   | string     |                   |
+| phone_number | integer    | null: false       |
+| buy          | references | foreign_key: true |
 
 ### Association
 
