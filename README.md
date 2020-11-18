@@ -2,19 +2,23 @@
 
 ## users テーブル
 
-| Column   | Type    | Options     |
-| -------- | --------| ----------- |
-| name     | string  | null: false |
-| nickname | string  | null: false |
-| email    | string  | null: false |
-| password | string  | null: false |
-| birthday | integer | null: false |
+| Column          | Type    | Options     |
+| --------------- | --------| ----------- |
+| first_name      | string  | null: false |
+| first_name_kana | string  | null: false |
+| last_name       | string  | null: false |
+| last_name_kana  | string  | null: false |
+| nickname        | string  | null: false |
+| email           | string  | null: false |
+| password        | string  | null: false |
+| birthday        | integer | null: false |
 
 ### Association
 
 - has_many :items
 - has_many :comments
-- has_one :buys
+- has_many :buys
+- has_one :address
 
 ## comments テーブル
 
@@ -28,9 +32,6 @@
 
 - belongs_to :user
 - belongs_to :item
-
-
-
 
 ## items テーブル
 
@@ -47,16 +48,28 @@
 - belongs_to :user
 - has_many :comments
 - has_one_attached :image
-
+- has_one :buys
 
 
 ## buys テーブル
 
-| Column   | Type     | Options     |
-| -------- | -------- | ----------- |
-| credit   | integer  | null: false |
-| derivery | text     | null: false |
+| Column   | Type       | Options     |
+| -------- | ---------- | ----------- |
+| user     | references |             |
+| item     | references |             |
 
 ### Association
 
+- belongs_to :user
+- belongs_to :item
+
+# address テーブル
+
+| Column   | Type       | Options     |
+| -------- | ---------- | ----------- |
+| address  | text       | null: false |
+
+### Association
+
+- belongs_to :item
 - belongs_to :user
