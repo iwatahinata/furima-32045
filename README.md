@@ -18,20 +18,6 @@
 - has_many :items
 - has_many :comments
 - has_many :buys
-- has_one :address
-
-## comments テーブル
-
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| text   | text       | null: false |
-| user   | references |             |
-| item   | references |             |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
 
 ## items テーブル
 
@@ -60,8 +46,10 @@
 
 ### Association
 
-- belongs_to :user
 - belongs_to :item
+- belongs_to :user
+
+- has_one :addresses
 
 # address テーブル
 
@@ -71,5 +59,17 @@
 
 ### Association
 
-- belongs_to :item
+- belongs_to :buy
+
+## comments テーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| text   | text       | null: false |
+| user   | references |             |
+| item   | references |             |
+
+### Association
+
 - belongs_to :user
+- belongs_to :item
