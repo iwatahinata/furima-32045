@@ -64,7 +64,7 @@
 | city           | string     | null: false       |
 | address        | string     | null: false       |
 | house_name     | string     |                   |
-| phone_number   | integer    | null: false       |
+| phone_number   | string     | null: false       |
 | buy            | references | foreign_key: true |
 
 ### Association
