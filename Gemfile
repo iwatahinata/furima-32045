@@ -60,7 +60,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
 
 
 group :production do
