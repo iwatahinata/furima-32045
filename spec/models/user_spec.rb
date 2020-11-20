@@ -74,15 +74,15 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name 全角文字を使用してください")
       end
-      it "パスワードに数字が含まれない場合登録できない" do
-      @user.password = "aaaaaa"
-      @user.valid?
-      expect(@user.errors.full_messages).to include("Password 英字と数字の両方を含めて設定してください")
-      end
       it "パスワードに英字が含まれない場合登録できない" do
       @user.password = "000000"
       @user.valid?
       expect(@user.errors.full_messages).to include("Password 英字と数字の両方を含めて設定してください")
+      end
+      it "パスワードに数字が含まれない場合登録できない" do
+        @user.password = "aaaaaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password 英字と数字の両方を含めて設定してください")
       end
       it "メールアドレスに＠がないと登録できない" do
       @user.email = "a0a0a0a0a0a0"
