@@ -27,9 +27,9 @@
 | explain          | text        | null: false       |
 | category_id      | integer     | null: false       |
 | status_id        | integer     | null: false       |
-| derivery_fee_id  | integer     | null: false       |
-| derivery_area_id | integer     | null: false       |
-| derivery_days_id | integer     | null: false       |
+| deriveryFee_id   | integer     | null: false       |
+| prefecture_id    | integer     | null: false       |
+| deriveryDays_id  | integer     | null: false       |
 | price            | integer     | null: false       |
 | user             | references  | foreign_key: true |
 
