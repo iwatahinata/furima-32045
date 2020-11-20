@@ -9,11 +9,6 @@ describe User do
       it "全ての項目が存在すれば登録できる" do
         expect(@user).to be_valid
       end
-      it "passwordが6文字以上であれば登録できる" do
-        @user.password = "000a00"
-        @user.password_confirmation = "000a00"
-        expect(@user).to be_valid
-      end
     end
 
 
