@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -63,6 +64,10 @@ gem 'devise'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+
+gem 'active_hash'
 
 group :production do
   gem 'rails_12factor'
