@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   validates :deriveryFee_id,  presence: true,  numericality: { other_than: 1 }
   validates :prefecture_id,    presence: true, numericality: { other_than: 1 }
   validates :deriveryDays_id, presence: true,  numericality: { other_than: 1 }
-  validates :price,            presence: true
- 
- 
+  validates :price, presence: true
+  validates :price,presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
  
   belongs_to :user
   has_many :comments
