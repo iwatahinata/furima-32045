@@ -4,9 +4,9 @@ class Item < ApplicationRecord
   validates :explain,          presence: true
   validates :category_id,      presence: true, numericality: { other_than: 1 }
   validates :status_id,        presence: true, numericality: { other_than: 1 }
-  validates :deriveryFee_id,  presence: true,  numericality: { other_than: 1 }
+  validates :fee_id,           presence: true,  numericality: { other_than: 1 }
   validates :prefecture_id,    presence: true, numericality: { other_than: 1 }
-  validates :deriveryDays_id, presence: true,  numericality: { other_than: 1 }
+  validates :days_id,          presence: true,  numericality: { other_than: 1 }
   validates :price, presence: true
   validates :price,presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 
@@ -17,8 +17,8 @@ class Item < ApplicationRecord
   has_one :buy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
-  belongs_to :deriveryDays
-  belongs_to :deriveryFee
+  belongs_to :days
+  belongs_to :fee
   belongs_to :category
   belongs_to :status
 end
