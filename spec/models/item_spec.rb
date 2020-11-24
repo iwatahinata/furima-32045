@@ -39,9 +39,9 @@ describe Item do
         expect(@item.errors.full_messages).to include("Status can't be blank")
       end
       it "配送料の情報がないと商品は保存できない" do
-        @item.deriveryFee_id = ''
+        @item.fee_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Deriveryfee can't be blank")
+        expect(@item.errors.full_messages).to include("Fee can't be blank")
       end
       it "発送元の地域情報がないと商品は保存できない" do
         @item.prefecture_id = ''
@@ -49,9 +49,9 @@ describe Item do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it "発送までの日数情報がないと商品は保存できない" do
-        @item.deriveryDays_id = ''
+        @item.days_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Deriverydays can't be blank")
+        expect(@item.errors.full_messages).to include("Days can't be blank")
       end
       it "価格についての情報がないと商品は保存できない" do
         @item.price = ''
