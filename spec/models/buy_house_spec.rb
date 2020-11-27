@@ -4,17 +4,11 @@ RSpec.describe BuyHouse, type: :model do
   describe '購入情報の保存' do
     before do
       @buy_house = FactoryBot.build(:buy_house)
-      @item = FactoryBot.build(:item)
-      @buy = FactoryBot.build(:buy)
     end
 
   context '購入情報の保存がうまくいくとき' do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@buy_house).to be_valid
-    end
-    it 'house_nameは空でも保存できること' do
-      @buy_house.house_name = nil
-        expect(@buy_house).to be_valid
     end
   end
 
@@ -46,6 +40,16 @@ RSpec.describe BuyHouse, type: :model do
     end
     it 'phone＿numberが空だと保存できないこと' do
       @buy_house.phone_number = nil
+        @buy_house.valid?
+        expect(@buy_house.errors.full_messages).to include("Phone number 11桁以内で入力してください")
+    end
+    it 'phone＿number11桁以上だと保存できないこと' do
+      @buy_house.phone_number = '090123456789'
+        @buy_house.valid?
+        expect(@buy_house.errors.full_messages).to include("Phone number 11桁以内で入力してください")
+    end
+    it 'phone＿numberが数字のみでないと保存できないこと' do
+      @buy_house.phone_number = '090aaaa1234'
         @buy_house.valid?
         expect(@buy_house.errors.full_messages).to include("Phone number 11桁以内で入力してください")
     end
