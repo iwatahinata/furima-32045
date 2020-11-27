@@ -1,6 +1,7 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :set_item, only: [:index, :create]
+  before_action :sold_item, only: :index
   before_action :move_to_index, only: :index
   def index
     @buy_house = BuyHouse.new
@@ -36,6 +37,12 @@ class BuysController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
+  end
+
+  def sold_item
+    if @item.buy != nil?
+      redirect_to root_path
+    end
   end
 
   def move_to_index
