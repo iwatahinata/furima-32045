@@ -1,12 +1,12 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!, only: [:index]
+  before_action :set_item, only: [:index, :create]
+  before_action :move_to_index, only: :index
   def index
     @buy_house = BuyHouse.new
-    @item = Item.find(params[:item_id])
     # 商品のidをparamsから取得したい
   end
   def create
-    @item = Item.find(params[:item_id])
     @buy_house = BuyHouse.new(buy_params)
     
     if @buy_house.valid?
@@ -32,6 +32,16 @@ class BuysController < ApplicationController
         card: buy_params[:token],    # カードトークン
         currency: 'jpy'                 # 通貨の種類（日本円）
       )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_index
+    if user_signed_in? && current_user.id == @item.user_id
+      redirect_to root_path
+    end
   end
 
  end
