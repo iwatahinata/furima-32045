@@ -8,6 +8,7 @@ class BuysController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @buy_house = BuyHouse.new(buy_params)
+    
     if @buy_house.valid?
       pay_item
       @buy_house.save
