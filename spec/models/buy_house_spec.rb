@@ -4,11 +4,17 @@ RSpec.describe BuyHouse, type: :model do
   describe '購入情報の保存' do
     before do
       @buy_house = FactoryBot.build(:buy_house)
+      @item = FactoryBot.build(:item)
+      @buy = FactoryBot.build(:buy)
     end
 
   context '購入情報の保存がうまくいくとき' do
     it 'すべての値が正しく入力されていれば保存できること' do
       expect(@buy_house).to be_valid
+    end
+    it 'house_nameは空でも保存できること' do
+      @buy_house.house_name = nil
+        expect(@buy_house).to be_valid
     end
   end
 
@@ -37,10 +43,6 @@ RSpec.describe BuyHouse, type: :model do
       @buy_house.address = nil
         @buy_house.valid?
         expect(@buy_house.errors.full_messages).to include("Address can't be blank")
-    end
-    it 'house_nameは空でも保存できること' do
-      @buy_house.house_name = nil
-        expect(@buy_house).to be_valid
     end
     it 'phone＿numberが空だと保存できないこと' do
       @buy_house.phone_number = nil
