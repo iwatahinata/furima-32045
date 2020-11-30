@@ -34,6 +34,10 @@ class BuysController < ApplicationController
       )
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def move_to_index
     if user_signed_in? && current_user.id == @item.user_id
       redirect_to root_path
