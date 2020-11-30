@@ -73,11 +73,11 @@
 
 ## comments テーブル
 
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| text   | text       | null: false |
-| user   | references |             |
-| item   | references |             |
+| Column   | Type       | Options     |
+| -------- | ---------- | ----------- |
+| text     | text       | null: false |
+| user_id  | integer    |             |
+| item_id  | integer    |             |
 
 ### Association
 
