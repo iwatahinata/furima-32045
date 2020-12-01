@@ -1,0 +1,9 @@
+.list {
+list-style: none;
+}
+
+.search-contents{
+  display: flex;
+  margin: 0px 20px;
+  
+}

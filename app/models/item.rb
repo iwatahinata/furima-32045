@@ -21,4 +21,12 @@ class Item < ApplicationRecord
   belongs_to :fee
   belongs_to :category
   belongs_to :status
+
+  def self.search(search)
+    if search != ""
+      Item.where('title LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
 end
