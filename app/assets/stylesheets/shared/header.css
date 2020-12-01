@@ -34,15 +34,14 @@
 }
 
 .search-button {
-  width: 5vh;
+  width: 10vh;
   border: 0;
   cursor: pointer;
   background-color: #3ccace;
   padding: 8px;
-}
-
-.search-icon {
-  width: 100%;
+  border-radius: 10px;
+  margin-left: 5px;
+  color: #ffffff;
 }
 
 .nav {

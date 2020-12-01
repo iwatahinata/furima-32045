@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+
+<div class="search-contents">
+  <% @items.each do |item| %> 
+      <li class='list'>
+        <%= link_to '詳細', item_path(item.id), method: :get %>
+         <div class='item-img-content'>
+        <% if item.image.attached? %>
+          <%= image_tag item.image, class: "item-img" %>
+        <% end %>
+          
+          <% if item.buy != nil %>
+          <div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+          <% end %>
+
+         </div>
+         <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.title %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.fee.name %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+         </div>
+      </li>
+  <% end %>
+</div>
+
+
+<%= render "shared/footer" %>
