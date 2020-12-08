@@ -8,11 +8,6 @@ class User < ApplicationRecord
   has_many :comments
   has_many :buys
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :type
-
-  validates :type_id, numericality: { other_than: 1 }
-
  with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: '全角文字を使用してください' } do
   validates :first_name
   validates :last_name
